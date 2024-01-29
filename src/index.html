@@ -8,6 +8,8 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
 				rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
 	<title>Udundi Coding Challenge</title>
 </head>
 <body>
@@ -15,7 +17,7 @@
 		<div class="flex-grow flex-1 w-[12.5rem] bg-maroon">
 			<div class="headerText h-screen ml-[5rem]">
 				<div>
-					<h1 class="font-didot text-[8rem] font-bold text-white pt-[50vh] -mb-[2rem]">
+					<h1 class="animate-[bounce_2.5s_ease-in-out_0.5] font-didot text-[8rem] font-bold text-white pt-[50vh] -mb-[2rem]">
 						Explore
 					</h1>
 				</div>
@@ -86,4 +88,102 @@
 	</div>
 
 </body>
+
+<script>
+	$(".moreButton").on("click", function () {
+		console.log("1");
+		$(".moreDetails").addClass("animate-[bounce_0.5s_ease-in-out_1.5]");
+		setTimeout(() => {
+			$(".modalBox").removeClass("invisible").addClass("scale-up-bl");
+			$(".headerText, .socialIcon").addClass("invisible");
+		}, "500");
+	});
+
+	$(".closeModal").on("click", function () {
+		$(".modalBox").addClass("scale-down-bl").removeClass("scale-up-bl");
+		setTimeout(() => {
+			$(".modalBox").addClass("invisible").removeClass("scale-down-bl");
+		}, "200");
+		$(".moreDetails").removeClass("animate-[bounce_0.5s_ease-in-out_1.5]");
+		$(".headerText, .socialIcon").removeClass("invisible");
+	});
+</script>
+
+<style>
+/* modal animation */
+.scale-up-bl {
+	-webkit-animation: scale-up-bl 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	animation: scale-up-bl 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.scale-down-bl {
+	-webkit-animation: scale-down-bl 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	animation: scale-down-bl 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@-webkit-keyframes scale-up-bl {
+	0% {
+		-webkit-transform: scale(0.5);
+		transform: scale(0.5);
+		-webkit-transform-origin: 0% 100%;
+		transform-origin: 0% 100%;
+	}
+
+	100% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+		-webkit-transform-origin: 0% 100%;
+		transform-origin: 0% 100%;
+	}
+}
+
+@keyframes scale-up-bl {
+	0% {
+		-webkit-transform: scale(0.5);
+		transform: scale(0.5);
+		-webkit-transform-origin: 0% 100%;
+		transform-origin: 0% 100%;
+	}
+
+	100% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+		-webkit-transform-origin: 0% 100%;
+		transform-origin: 0% 100%;
+	}
+}
+
+@-webkit-keyframes scale-down-bl {
+	0% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+		-webkit-transform-origin: 0% 100%;
+		transform-origin: 0% 100%;
+	}
+
+	100% {
+		-webkit-transform: scale(0.5);
+		transform: scale(0.5);
+		-webkit-transform-origin: 0% 100%;
+		transform-origin: 0% 100%;
+	}
+}
+
+@keyframes scale-down-bl {
+	0% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+		-webkit-transform-origin: 0% 100%;
+		transform-origin: 0% 100%;
+	}
+
+	100% {
+		-webkit-transform: scale(0.5);
+		transform: scale(0.5);
+		-webkit-transform-origin: 0% 100%;
+		transform-origin: 0% 100%;
+	}
+}
+</style>
+
 </html>
